@@ -1,14 +1,7 @@
-<a class="waves-effect waves-light btn">Add New Dish</a>
-	<li><a *ngFor="let rest of restaurants">{{rest.$key}}</a></li>
-	<select >
-      <option value="" disabled selected>Choose your option</option>
-	  <option value="" >Abc</option>
-      <option *ngFor="let rest of restaurants | async" value="rest.$key">{{rest.$key}}</option>
-  	
-    </select>
-    
-	<label>Materialize Select</label>
-		   
+<div *ngFor="let r of restaurants" value="r.$key">
+	{{ r.$key }}
+</div>
 
-
-	
+<select class="form-control" id="sel1">
+	<option *ngFor="let r of restaurants" value="r.$key">{{ r.$key }}</option>
+</select>

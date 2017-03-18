@@ -13,26 +13,22 @@ declare var jQuery:any;
 })
 
 export class SettingsComponent implements OnInit,OnChanges {
-  elementRef: ElementRef;	
+  elementRef: ElementRef;
   //list:Array<restaurants> = [] ;
   //restaurants:Array<string> = [];
-  restaurants:any;	
-  constructor(elementRef: ElementRef, private fireBaseService:FireBaseService) { 
+  private restaurants:any;
+  constructor(elementRef: ElementRef, private fireBaseService:FireBaseService) {
   	this.elementRef = elementRef;
   }
-	
+
   ngOnChanges(){
-	 
-  }	
+
+  }
 
   ngOnInit() {
 	  this.fireBaseService.getRestaurantBasedOnLocation().subscribe(response => {
-		    this.restaurants=response;
- 		 	console.log(response[0].$key);	
-
+		    this.restaurants = response;
+ 		 	console.log(this.restaurants);
 		});
-		
 	}
-
 }
-

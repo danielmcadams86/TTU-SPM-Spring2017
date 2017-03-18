@@ -33,15 +33,15 @@ export class FireBaseService {
 
 		return this.dishesForCuisineName;
 	}
-
 	
 	getRestaurantBasedOnLocation(){
 		this.firebaseCuisines = this.af.database.list('https://spm-spring2017-7fbab.firebaseio.com/Location/Lubbock',{
-			
+
 		}) as FirebaseListObservable<restaurant []>;
-		
+
 		return this.firebaseCuisines;
 	}
+
 	//returns dish information
 	getDish($key) {
 		this.fbDish = this.af.database.object('/dishes/'+ $key) as FirebaseObjectObservable<dish>
@@ -53,8 +53,6 @@ export class FireBaseService {
 		this.fbComments = this.af.database.list('/dishes/'+ dish_id + '/comments') as FirebaseListObservable<comments[]>
 			return this.fbComments;
 	}
-
-	
 }
 
 interface cuisines {
@@ -98,7 +96,4 @@ interface restaurant {
 interface restaurants {
 	restaurant_city: string;
 	restaurant_name: string;
-
 }
-
-
